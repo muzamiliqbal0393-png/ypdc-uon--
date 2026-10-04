@@ -1,0 +1,28 @@
+# secrets / asli data (kabhi GitHub par na jayein)
+.env
+.env.local
+server/.env
+server/data/*.sqlite
+server/data/*.sqlite-shm
+server/data/*.sqlite-wal
+*.sqlite
+
+# dependencies
+node_modules/
+server/node_modules/
+tests/node_modules/
+
+# build / temp
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+shots/
+crops/
+pdfcheck/
+dev-patches/
+
+# editors
+.vscode/
+.idea/
+.vercel

@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: ypdc-uon
+    runtime: node
+    plan: free
+    rootDir: backend/server
+    buildCommand: npm ci --omit=dev
+    startCommand: npm run seed && node server.js
+    healthCheckPath: /api/healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_FILE
+        value: ./data/ypdc.sqlite
+      - key: UPLOAD_DIR
+        value: ./data/uploads
+      - key: TOKEN_HOURS
+        value: "8"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false

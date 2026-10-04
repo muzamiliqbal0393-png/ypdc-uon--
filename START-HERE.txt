@@ -1,0 +1,104 @@
+============================================================
+ YPDC UON  —  ONLY 2 FOLDERS
+ 1) frontend/   = the complete website  (HTML + CSS + JavaScript)
+ 2) backend/    = the real server + database (Node.js + SQLite)
+============================================================
+
+A) JUST WANT TO SEE THE WEBSITE (10 seconds, nothing to install)
+   Double-click  frontend/index.html  — the website opens.
+   (frontend/ypdc-uon-website.html = the whole website in ONE file,
+    handy for sending by USB or email.)
+
+B) WANT TO RUN THE SERVER (real login + real database)
+   Open a terminal / CMD and run these 3 commands:
+
+      cd backend/server
+      npm install            <- once only (needs internet)
+      npm run first-run      <- once only: creates .env + the database
+                                + one real admin account by itself
+      npm start              <- http://localhost:8000
+
+   Admin login  :  http://localhost:8000/#/admin
+   email / password / ADMIN_KEY  -> printed on screen at the end of
+   first-run and stored in backend/server/.env.
+   (Forgot the password? Open the .env file and read it again.)
+
+   NOTE: backend/server picks up the "frontend" folder by itself,
+   so keep both folders TOGETHER (exactly as they are here).
+   Sandbox shortcut (one command):  bash /home/user/start-local.sh
+   → prints the link http://localhost:8000 and runs the server (Ctrl + C to stop).
+   No public link is created — everything stays on this machine.
+
+C) WANT A PERMANENT LINK THAT NEVER DIES
+   Open DEPLOY-GUIDE.txt — 4 easy steps (GitHub → Render → link ready).
+   You get a link like  https://ypdc-uon.onrender.com  which does not depend
+   on any sandbox or tunnel. render.yaml is already in this folder, so Render
+   sets everything up by itself.
+   (Have your own server? Dockerfile + docker-compose.yml are included:
+       JWT_SECRET="$(openssl rand -hex 48)" ADMIN_KEY="a-long-key" docker compose up -d --build )
+
+D) NEW USER REGISTRATION (their own account)
+   • On the website open  #/login  and click  "Create account".
+   • The user fills name + email + role + password and gets their own
+     dashboard immediately (no waiting for approval).
+   • Every sign-up appears for the admin in  Admin panel -> People Directory
+     and in  Activity Log ("Self sign-up (new account)").
+   • Admin accounts can never be created from the sign-up form (they need
+     the ADMIN_KEY) — that is on purpose.
+
+E) PICTURES ON THE WEBSITE (from the admin dashboard)
+   • Admin panel -> Website Content -> "Photos & logo".
+   • Upload a homepage hero photo, gallery pictures, or your own logo.
+   • The picture is saved in the database and appears on the public website
+     straight away (big photos are resized automatically).
+   • "Reset" puts the official YPDC logo back.
+
+F) THE LOGO
+   • The official YPDC logo (University of Narowal + YPDC) is used everywhere:
+     header, footer, login page, portal sidebar, chatbot and the browser tab.
+   • It is shown on its own (no text beside it) and it is big and clear:
+     header 62px, login 64px, sidebar 56px, footer 52px, phone header 46px.
+   • Inside the footer: the FOUR OFFICIAL logos — Paigham-e-Pakistan,
+     University of Narowal, Punjab CoE-CVE (Home Department) and the YPDC wordmark —
+     shown directly on the footer (no boxes/tiles behind them).
+     One line of 4 across the full width, 2 x 2 on a phone.
+     Files: frontend/assets/img/footer-logo-*.png (click any tile to open it full size).
+   • On every page the footer shows the build tag, e.g.  Build R34.3 .
+     If you do not see that tag, press Ctrl + F5 once (old copy in the browser).
+
+G) LIVE LINK & PORTAL NAMES & PHONE
+   • Live link right now:
+        chhota : https://spoo.me/ypdcuon-10010822
+        poora  : https://related-consciousness-proved-capable.trycloudflare.com
+     Link band ho jaye to:  bash /home/user/go-live.sh  — naya link + naya chhota link
+     khud ban jata hai (LIVE-LINK.txt mein likha aata hai).
+     Hamesha ke liye apna link chahiye to DEPLOY-GUIDE.txt dekhein (section C).
+
+   • The two member portals are named:  Volunteer Portal  and  General Member Portal
+     (shown on the homepage portal cards, portal sidebar, login page, sign-up role list,
+      membership page, chatbot and the admin panel).
+   • Phone:  0302 542 3333  — footer Contact column and the Contact page.
+     WhatsApp buttons use  wa.me/923025423333 .
+
+H) FILES & CODE (build R34.3)
+   • Code is plain and clean — no decorative comment banners.
+   • ypdc-uon-website.html (single file) is only ~0.55 MB: it keeps the pictures as
+     short relative URLs (assets/img/...). Keep it inside the frontend/ folder so the
+     pictures load, or simply use index.html with the assets folder.
+
+I) PHOTOS (build R34.3)
+   • The website shows the real YPDC UON photos (campus, Narowal Peace Dialogue 2026,
+     seminars, group photos, Freshers Week desk) — on the home hero, the about page,
+     the gallery, the 7 directorate cards and the 7 portal banners.
+     No placeholder pictures are left.
+
+J) REMEMBER
+   • The website has no demo/fake data — whatever you add from the admin
+     panel is what visitors see.
+   • The database starts empty: only 1 admin account + 7 directorates.
+   • The server must be running for login/sessions. If the server is down,
+     only the public website is shown (there is no demo login).
+   • Re-running the seed never wipes your data: it skips an already-seeded
+     database (force it only when you really want a fresh start:
+     npm run seed -- --force).
+============================================================

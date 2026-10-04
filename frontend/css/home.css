@@ -1,0 +1,264 @@
+/* ============================================================
+   YPDC UON — redesigned home page + team system
+   Loaded after public.css. Green/white institutional design system.
+   ============================================================ */
+
+/* ---------- generic section header ---------- */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head .sh-t{max-width:64ch}
+.sec-head h2{margin-top:10px}
+.sec-head p{margin-top:10px;color:var(--muted);font-size:16px}
+.sec-rule{height:3px;width:56px;border-radius:2px;margin-top:14px;background:linear-gradient(90deg,var(--primary) 0 62%,var(--accent) 62% 100%)}
+.sec-head.on-dark h2,.sec-head.on-dark .sh-t h2{color:#fff}
+.sec-head.on-dark p{color:#CDE7D7}
+
+/* ---------- intro / who we are ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:52px;align-items:center}
+.value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.value-item{
+  display:flex;gap:12px;align-items:flex-start;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;
+}
+.value-item .vi-ic{
+  width:34px;height:34px;border-radius:var(--r-xs);background:var(--light);color:var(--primary);
+  display:grid;place-items:center;flex:0 0 auto;
+}
+.value-item .vi-ic svg{width:18px;height:18px}
+.value-item b{display:block;font-size:14.5px;color:var(--text-strong)}
+.value-item span{font-size:12.8px;color:var(--muted)}
+.about-media{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about-media .am-tall{grid-row:span 2}
+.media-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--light);position:relative}
+.media-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.media-frame.ratio-43{aspect-ratio:4/3}
+.media-frame.ratio-169{aspect-ratio:16/9}
+.media-frame.ratio-11{aspect-ratio:1/1}
+.media-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 18px 14px;
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(23,34,28,.72));
+  color:#fff;font-size:13px;font-weight:500;
+}
+
+/* ---------- what we do (pathway cards) ---------- */
+.path-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.path-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:24px 22px;display:flex;flex-direction:column;gap:12px;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.path-card:hover{border-color:var(--border-strong);box-shadow:var(--sh);transform:translateY(-3px)}
+.path-card .pc-ic{
+  width:44px;height:44px;border-radius:var(--r-sm);background:var(--light);color:var(--primary-dark);
+  display:grid;place-items:center;transition:background .18s ease,color .18s ease;
+}
+.path-card:hover .pc-ic{background:var(--primary);color:#fff}
+.path-card .pc-ic svg{width:22px;height:22px}
+.path-card h3{font-size:1.06rem}
+.path-card p{font-size:14px;color:var(--muted);line-height:1.6}
+.path-card .pc-link{margin-top:auto;font-size:13.5px;font-weight:600;color:var(--primary);display:inline-flex;align-items:center;gap:7px}
+.path-card .pc-num{
+  font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted-2);text-transform:uppercase;
+}
+
+/* ---------- two team sections ---------- */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.team-card{
+  position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:34px;display:flex;flex-direction:column;gap:14px;
+  box-shadow:var(--sh-sm);
+}
+.team-card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--primary)}
+.team-card.is-member::before{background:var(--primary-soft)}
+.team-card .tc-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--primary);
+}
+.team-card.is-member .tc-kicker{color:var(--primary-soft)}
+.team-card .tc-ic{
+  width:52px;height:52px;border-radius:var(--r-md);background:var(--light);color:var(--primary-dark);
+  display:grid;place-items:center;
+}
+.team-card .tc-ic svg{width:26px;height:26px}
+.team-card h3{font-size:1.35rem}
+.team-card p{font-size:14.8px;color:var(--muted);line-height:1.66}
+.team-card ul{display:grid;gap:8px;margin-top:2px}
+.team-card li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text)}
+.team-card li svg{width:16px;height:16px;color:var(--success);flex:0 0 auto;margin-top:3px}
+.team-card .tc-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.team-card .tc-meta{font-size:12.5px;color:var(--muted-2)}
+.team-flow{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin-top:28px;padding:18px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-lg);
+}
+.team-flow .tf-node{
+  background:#fff;border:1px solid var(--border);border-radius:var(--r-xs);padding:7px 14px;
+  font-size:12.5px;font-weight:600;color:var(--primary-dark);
+}
+.team-flow .tf-arw{color:var(--muted-2)}
+
+/* ---------- events / highlights / news lists ---------- */
+.news-list{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.news-list .nl-row{display:flex;gap:14px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border)}
+.news-list .nl-row:last-child{border-bottom:0}
+.news-list .nl-row:hover{background:var(--surface-2)}
+.news-list .txt{min-width:0;flex:1}
+.news-list .txt b{display:block;font-size:15px;color:var(--text-strong);font-weight:600}
+.news-list .txt small{color:var(--muted);font-size:12.5px}
+.tag-pill{
+  font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);
+  background:var(--light);border-radius:var(--r-xs);padding:4px 9px;white-space:nowrap;
+}
+
+.grid-2-1{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:34px}
+
+/* institutional CTA band */
+.cta-band{
+  background:var(--primary-dark);color:#fff;border-radius:var(--r-xl);
+  padding:38px 40px;display:flex;gap:26px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.cta-band::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.10),transparent 65%);
+}
+.cta-band h3{color:#fff;font-size:1.4rem;position:relative}
+.cta-band p{color:#CDE7D7;font-size:14.6px;margin-top:8px;max-width:62ch;position:relative}
+.cta-band .cb-stats{display:flex;gap:22px;margin-top:18px;position:relative}
+.cta-band .cb-stats .cbs{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:12px 18px}
+.cta-band .cb-stats .cbs b{display:block;font-size:22px;color:#fff}
+.cta-band .cb-stats .cbs span{font-size:12px;color:#B7D6C5}
+.cta-band .btn-row{position:relative}
+
+/* ---------- gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery img{aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border);width:100%;height:100%}
+.gallery img:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+
+/* ---------- team forms (modals) ---------- */
+.team-form-note{
+  background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:13px 16px;font-size:13.4px;color:var(--muted);margin-bottom:20px;
+}
+.step-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--primary);margin-bottom:8px;
+}
+.form-status{display:none;border-radius:var(--r-sm);padding:13px 16px;font-size:14px;margin-bottom:18px;white-space:pre-line}
+.form-status.show{display:block}
+.form-status.is-err{background:var(--danger-soft);color:#8E2E23;border:1px solid #F0CFCA}
+.form-status.is-ok{background:var(--success-soft);color:#146C43;border:1px solid #C7E8D5}
+.form-status.is-info{background:var(--light);color:var(--primary-dark);border:1px solid var(--border)}
+.btn.is-busy{position:relative;color:transparent !important;pointer-events:none}
+.btn.is-busy::after{
+  content:"";position:absolute;inset:0;margin:auto;width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.45);border-top-color:#fff;animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.team-success{text-align:center;padding:8px 0 4px}
+.team-success .ts-ic{
+  width:64px;height:64px;border-radius:50%;background:var(--success-soft);color:var(--success);
+  display:grid;place-items:center;margin:0 auto 16px;
+}
+.team-success .ts-ic svg{width:30px;height:30px}
+.team-id-box{
+  display:inline-flex;flex-direction:column;gap:2px;background:var(--light);border:1px dashed var(--border-strong);
+  border-radius:var(--r-sm);padding:12px 22px;margin-top:14px;
+}
+.team-id-box .tib-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.team-id-box .tib-v{font-size:20px;font-weight:700;color:var(--primary-dark);font-family:var(--mono)}
+
+/* ---------- team panel (portals + dashboards) ---------- */
+.team-panel-head{
+  display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 26px;box-shadow:var(--sh-sm);
+}
+.team-panel-head .tph-id{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.team-panel-head h3{font-size:1.3rem}
+.team-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+.team-kpi{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px}
+.team-kpi .tk-k{font-size:12px;color:var(--muted)}
+.team-kpi .tk-v{font-size:24px;font-weight:700;color:var(--primary-dark);letter-spacing:-.02em}
+.team-kpi .tk-s{font-size:12px;color:var(--muted-2)}
+.member-row{display:flex;gap:14px;align-items:center;padding:13px 4px;border-bottom:1px solid var(--border)}
+.member-row:last-child{border-bottom:0}
+.member-row .av{
+  width:38px;height:38px;border-radius:50%;background:var(--light);color:var(--primary-dark);
+  display:grid;place-items:center;font-size:13px;font-weight:700;flex:0 0 auto;
+}
+.member-row .tx{flex:1;min-width:0}
+.member-row .tx b{display:block;font-size:14.6px;color:var(--text-strong)}
+.member-row .tx small{color:var(--muted);font-size:12.6px}
+.member-row .mr-act{display:flex;gap:8px;flex-wrap:wrap}
+.team-empty{background:var(--surface-2);border:1px dashed var(--border-strong);border-radius:var(--r-md);padding:26px;text-align:center}
+.team-empty b{display:block;color:var(--text-strong);margin-bottom:6px}
+.team-empty p{color:var(--muted);font-size:14px;margin-bottom:16px}
+.team-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--border);margin:22px 0 0}
+.team-tabs button{
+  padding:11px 16px;font-size:14px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;
+}
+.team-tabs button.is-on{color:var(--primary);border-color:var(--primary)}
+
+/* ---------- admin teams ---------- */
+.tm-filter{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.tm-counts{display:flex;gap:10px;flex-wrap:wrap}
+.tm-count{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 14px;font-size:13px}
+.tm-count b{color:var(--primary-dark)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .path-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2-1{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:30px}
+  .team-grid{grid-template-columns:1fr}
+  .team-kpis{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:640px){
+  .section{padding:52px 0}
+  .path-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+  .about-media{grid-template-columns:1fr}
+  .team-card{padding:24px}
+  .team-kpis{grid-template-columns:1fr}
+  .cta-band{padding:26px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery img:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  .sec-head{margin-bottom:24px}
+}
+
+/* ---------- team picker (join flow) ---------- */
+.team-options{display:grid;gap:10px;max-height:290px;overflow:auto;padding-right:2px}
+.team-option{
+  display:grid;grid-template-columns:42px minmax(0,1fr) 22px;gap:13px;align-items:center;text-align:left;
+  background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;
+  font:inherit;color:inherit;width:100%;transition:border-color .16s ease,background .16s ease;
+}
+.team-option:hover{border-color:var(--border-strong);background:var(--surface-2)}
+.team-option.is-on{border-color:var(--primary);background:var(--light);box-shadow:0 0 0 2px rgba(16,105,52,.10)}
+.team-option .to-ic{width:42px;height:42px;border-radius:var(--r-sm);background:var(--light);color:var(--primary-dark);display:grid;place-items:center}
+.team-option .to-ic svg{width:20px;height:20px}
+.team-option .to-tx{min-width:0}
+.team-option .to-tx b{display:block;font-size:14.6px;color:var(--text-strong)}
+.team-option .to-tx small{display:block;color:var(--muted);font-size:12.4px;line-height:1.5}
+.team-option .to-check{color:var(--primary);display:grid;place-items:center}
+.team-option .to-check svg{width:16px;height:16px}
+
+/* ---------- public team directory (#/teams) ---------- */
+.dir-head{align-items:flex-end;gap:18px}
+.dir-search{margin:0;min-width:250px}
+.dir-head h2{font-size:1.5rem}
+.team-dir-card{display:flex;flex-direction:column;height:100%}
+.team-dir-card h3{font-size:1.12rem;letter-spacing:-.01em}
+.tdc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tdc-id{font-family:var(--font-mono,ui-monospace,SFMono-Regular,Menlo,monospace);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--primary-dark);background:var(--light);border:1px solid var(--border);border-radius:var(--r-pill);padding:3px 10px}
+.tdc-lead{margin-top:4px;font-size:.9rem;font-weight:600}
+.tdc-purpose{margin-top:10px;font-size:.9rem;color:var(--muted);flex:1}
+.tdc-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:.83rem;color:var(--muted)}
+.tdc-meta svg{width:15px;height:15px;vertical-align:-2px;margin-right:5px;color:var(--primary)}
+@media (max-width:760px){.dir-search{min-width:0;width:100%}}
+
+/* team announcements (leader + member view) */
+.team-tabs button b{display:inline-block;min-width:18px;margin-left:6px;padding:1px 6px;border-radius:999px;background:var(--light);color:var(--primary-dark);font-size:11px;line-height:16px}
+.ann-body{margin-top:8px;font-size:.92rem;color:var(--text);white-space:pre-wrap}

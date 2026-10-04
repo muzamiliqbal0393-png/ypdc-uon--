@@ -1,0 +1,106 @@
+YPDC UON — PERMANENT LINK (free, Render.com)
+===========================================
+
+Sandbox ka link (spoo.me/...) sirf kuch der chalta hai. Agar aap chahte hain ke
+link kabhi na mare aur hamesha wohi rahe, to is folder ko Render.com par le jayein.
+
+Milne wala link:      https://ypdc-uon.onrender.com   (naam aap badal sakte hain)
+Website + API + database:  sab isi ek link par chalte hain. Alag database ki zaroorat nahi.
+
+
+STEP 1 — GitHub par repo banayein (5 minute)
+--------------------------------------------
+  1. github.com par free account banayein (agar nahi hai)
+  2. New repository → Name: ypdc-uon → Private ya Public (dono theek) → Create repository
+  3. "Add file" → "Upload files" → is folder (ypdc-uon) ke andar se ye cheezein drag karein:
+
+         frontend/            (poori website: HTML, CSS, JS, 17 photos)
+         backend/             (server + database code)
+         render.yaml          (Render ki settings — isi se deploy khud ho jata hai)
+         Dockerfile           (optional — apne server ke liye)
+         docker-compose.yml   (optional)
+         .gitignore
+         DEPLOY-GUIDE.txt     (yehi file)
+
+     NOTE:  backend/server/.env  upload NA karein — us mein aap ke secret (JWT_SECRET,
+            ADMIN_KEY) likhe hote hain. Render par woh khud generate ho jate hain.
+
+  4. "Commit changes" daba dein. Bas.
+
+
+
+STEP 2 — Render par deploy (5 minute)
+-------------------------------------
+  1. render.com khollein → "Get Started" → GitHub se sign up (free, card ki zaroorat nahi)
+  2. Dashboard mein: New + → Blueprint
+  3. Apna ypdc-uon repo chunein → Apply
+  4. Render khud parh lega ke kya karna hai (render.yaml), build chalayega aur link bana dega
+
+
+STEP 3 — Link ready (2-3 minute baad)
+-------------------------------------
+  Link:  https://ypdc-uon.onrender.com
+
+  Khol kar dekh lein — website wahi hogi jo aap ne abhi dekhi hai
+  (Home, About, Directorates, Events, News, Achievements, Membership, Contact,
+   Feedback, Volunteer Portal, General Member Portal).
+
+  Agar naam pehle se kisi ne le liya ho to Render "name is taken" keh dega —
+  us surat mein naam badal kar ypdc-uon-pk ya ypdcuon rakh lein (link wohi naam banega).
+
+
+
+STEP 4 — Admin login
+--------------------
+  Link:      https://ypdc-uon.onrender.com/#/admin
+  Email:     admin@uon.edu.pk
+  Password:  woh jo aap ne Render → Environment → ADMIN_PASSWORD mein rakha
+  Admin key: Render → Environment → ADMIN_KEY (copy kar lein — login mein ye bhi lagti hai)
+
+  Pehli dafa Render "Environment" mein ADMIN_PASSWORD khali hoga to seed khud ek
+  random password bana kar Render ke Logs mein print kar deta hai — wahan se le lein,
+  ya ADMIN_PASSWORD ki value khud likh dein aur "Save" kar ke redeploy ho jane dein.
+
+
+
+FREE PLAN KI SUCH (honest baatein)
+----------------------------------
+  • Link hamesha same rehta hai, kabhi nahi badalta.
+  • Magar free plan par site 15 minute traffic na aane par "so jati" hai —
+    phir pehla load 30-60 second leta hai. Uske baad normal speed.
+  • Free plan par disk nahi hoti, is liye redeploy par aap ka data (upload ki hui
+    photos / nayi entries) reset ho jata hai. Website ka apna content seed se khud
+    wapas aa jata hai, is liye site khali nahi hoti.
+
+  Always-on + data mehfooz rakhna ho (aam tor par yehi behtar hai):
+    • Settings → Instance Type → Starter   ($7/month, 24/7 jagti hai, koi wait nahi)
+    • Disks → Add Disk → Name: ypdc-data · Mount Path: /var/data · Size: 1 GB
+    • Environment → DB_FILE = /var/data/ypdc.sqlite   → Save
+    (Iske baad aap ki upload ki hui photos aur entries hamesha rehti hain.)
+
+
+
+SITE UPDATE KARNE KA TAREEQA
+----------------------------
+  GitHub par nayi file upload karein (ya purani badal dein) → Render khud 2-3 minute
+  mein nayi version live kar deta hai. Kuch alag karne ki zaroorat nahi.
+
+
+
+APNA SERVER / VPS HO TO (Docker)
+--------------------------------
+  cd ypdc-uon
+  JWT_SECRET="$(openssl rand -hex 48)" ADMIN_KEY="apni-lambi-key" docker compose up -d --build
+  → http://localhost:8000   (Website + API dono)
+
+  Uske baad domain (misal www.ypdcuon.org) point kar dein — HTTPS aap khud laga lein
+  (Caddy ya nginx). Database file: backend/server/data/ypdc.sqlite (volume par rehti hai).
+
+
+
+YAAD RAHE
+---------
+  • Roz-marra ka test: sandbox ka chhota link kaafi hai (LIVE-LINK.txt mein likha hota hai).
+  • Mustaqil (permanent) link chahiye to sirf ek dafa Render wale 4 step kar lein.
+  • Render wala link kisi sandbox ya reset se nahi rukta — woh aap ke GitHub repo se
+    chalta hai.

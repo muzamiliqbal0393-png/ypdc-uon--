@@ -1,0 +1,17 @@
+services:
+  ypdc:
+    build: .
+    container_name: ypdc-uon
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      NODE_ENV: production
+      JWT_SECRET: ${JWT_SECRET:-change-this-before-you-go-live}
+      ADMIN_KEY: ${ADMIN_KEY:-change-this-before-you-go-live}
+      TOKEN_HOURS: "8"
+    volumes:
+      - ypdc-data:/app/backend/server/data
+
+volumes:
+  ypdc-data:

@@ -1,0 +1,119 @@
+# YPDC UON — LIVE SERVER (real data, no demo)
+
+**MODE: LOCAL ONLY** — public tunnel/link band kar diya gaya hai (01 Oct 2026). Site sirf http://localhost:8000 par chal rahi hai. Dobara live karne ke liye: `bash /home/user/go-live.sh`.
+
+**Build R34.3** — footer now carries the four official logos (Paigham-e-Pakistan · University of Narowal · Punjab CoE-CVE · YPDC wordmark); single-file copy is 0.55 MB.
+
+**Site (abhi chal rahi hai — local):**  http://localhost:8000
+
+> Site roz-marra ke liye LOCAL par chal rahi hai. Internet par kuch publish nahi hai.
+> Kabhi dobara live karna ho to:  `bash /home/user/go-live.sh`
+> (woh naya public link + naya chhota link khud bana kar LIVE-LINK.txt mein likh dega.)
+
+---
+
+## Admin login (for you)
+
+| Item | Value |
+|---|---|
+| Page | `/#/admin` (there is no admin option on the normal login page — only a small 🔒 link) |
+| Email | `admin@uon.edu.pk` |
+| Password | `Ypdc-Live@2026` |
+| ADMIN_KEY (security key) | `YJHpXTzyULu0` |
+
+> All three are required: email + password + ADMIN_KEY.
+> These values are stored in `ypdc-uon/backend/server/.env` — do not share that file.
+
+---
+
+## What is running
+
+| Part | Status |
+|---|---|
+| Backend (Node + SQLite) | running on port 8000 — `server.js` |
+| Frontend | served by the same server, from `ypdc-uon/frontend/` |
+| Database | `ypdc-uon/backend/server/data/ypdc.sqlite` — 1 admin account, everything else 0 |
+| Public tunnel | cloudflared → the link above |
+
+## Tested on this build (fresh database)
+
+| Check | Result |
+|---|---|
+| Public website (13 routes) + new logo on every page | renders, no JS errors |
+| All 6 portals + guest (54 sections) | English text only, no JS errors |
+| Admin panel (15 sections) | English text only, no demo data |
+| English check (public + portals + admin + chatbot) | 0 Roman Urdu strings |
+| `npm test` (backend + security + sign-up) | **31 / 31 passed** |
+| Single-file HTML (`frontend/ypdc-uon-website.html`) | rebuilt, no external requests |
+
+## Dashboards (all empty by design)
+
+| Portal | What the dashboard shows now |
+|---|---|
+| Student | 0 events · 0 registrations · 0% attendance · 0 certificates |
+| Member | 0 duties · 0 tasks · 0% attendance · 0 reports |
+| Directorate | 0 team members · 0 open tasks · 0 events · 0 reports |
+| Faculty | 0 activities · 0 approvals · 0 reports · 0 feedback |
+| Alumni | 0 connections · 0 mentorship · 0 events · 0 opportunities |
+| Admin | 1 account (admin only) · 0 applications · 0 registrations · 0 audit entries |
+| Guest / Public | 7 directorates (the structure) · everything else 0 |
+
+No dashboard contains a fixed or invented number: every value is counted from the SQLite
+database, and the "Next focus" card plus every list shows a clean empty state instead of
+sample rows. Test data created by automated checks is deleted afterwards, so the live
+server always shows 0.
+
+**Public workspace:** `/#/portal/guest/dashboard` (12 sections, open to everyone — no login).
+Portal logins: `/#/login`; admin: `/#/admin`.
+
+## New in this build
+
+| Feature | Where |
+|---|---|
+| Official YPDC logo (University of Narowal + YPDC emblem) | header, portal sidebar, login page, chatbot, browser tab, admin panel |
+| **Logo changed everywhere** (`logo-ypdc.png` / `logo-ypdc-mark.png`) | old `logo.png` / `logo-mark.png` deleted from the project, so they can no longer be served — checked on all 47 public, portal and admin pages: the only logo files on the site are the new ones |
+| **Photos completed on every page** (build R34.2) | The real YPDC UON photos now cover the whole site: home hero, about, **7 directorate cards** (each team its own photo), events, news, achievements, highlights, membership, induction, contact and the gallery. 87 photos on the 12 public pages — none broken, no placeholder left. |
+| **Clean code + light single file** (build R34.2) | All decorative and redundant comments were removed from the JS/CSS (about 640 lines less), and the single-file `ypdc-uon-website.html` no longer embeds photos as base64 — it is now **0.58 MB instead of 5.34 MB** and loads pictures through short relative URLs (`assets/img/hero-campus.jpg?v=R34.2`). |
+| **Real photos on the website** (build R34.2) | Every placeholder picture was replaced with the real YPDC UON photos: the campus building (home hero), the *Narowal Peace Dialogue 2026* stage and panel, the awareness walk, the national seminar, the award ceremony, the Freshers Week desk, the round table and the dialogue audience. They appear on the home hero, the about/membership pages, the gallery (8 photos) and the 7 portal banners. Photos keep their file name with a `?v=R34.2` version, so browsers fetch the new ones at once. |
+| **The 4 logo marks sit inside the footer** (build R34.1) | No separate section: the *"Official logo formats"* caption and the divider line above the marks were removed, and the four tiles now sit as part of the footer itself — right under the footer columns, 2 round + 2 rectangular, all the same official logo. 4 tiles across on a laptop, 2 × 2 on a phone. Each tile still opens the full-size logo. |
+| **Logo formats — full width, big** (build R33.9) | Below the footer columns (in the first column under *"Follow @ypdc.uon"* the social icons stay; the logo row now spans the **full footer width**): a hairline, the caption *Official logo formats*, then the logo in **4 big tiles across one line** — 2 round + 2 rectangular, 118 px logo each. On tablets/phones the same four fold into a neat 2 × 2 grid. Every tile opens the full-size logo. |
+| **Portal names changed** (build R34.0) | *Member Portal* → **General Member Portal** and *Student Portal* → **Volunteer Portal** — everywhere: homepage portal cards + workspace panel, portal sidebar, header and **every page title inside the portal**, membership page, sign-up role list, login page, chatbot answers, admin panel (People Directory, roles) and the database content |
+| **New phone number 0302 542 3333** (build R34.0) | Shown in the footer *Contact* column and on the Contact page; clicking it dials `tel:03025423333`; both WhatsApp buttons open `wa.me/923025423333`. The old +92 542 920 000 is gone from the site |
+| **Cached copy can never show old text** (build R34.0) | The browser store carries a content version — when the shipped content changes, the site refreshes the content collections (site, portals, roles) by itself instead of reusing an older cached copy |
+| **Logo only — no text next to it** (build R33.4) | The green wordmark ("YPDC UON / Young Peace & Development Corps") was removed everywhere: header, footer, login page and portal sidebar now show **only the logo**, inside a clean cream circle |
+| **Logo made bigger** (build R33.4) | Header **62px**, login page **64px**, portal sidebar **56px**, footer **52px**, chatbot avatar **33px**, phone header **46px** — the header stays the same size while you scroll |
+| **Create account** (a new user registers themselves) | `/#/login` → *Create account* tab → own dashboard opens at once |
+| Admin sees every registration | Admin → People Directory + Activity Log ("Self sign-up (new account)") |
+| **Photos from the dashboard** | Admin → Website Content → *Photos & logo*: homepage hero picture, gallery photos, custom logo (or reset to default) |
+| Pictures are stored in the database | `site.photos` collection — the public website shows them immediately |
+
+## If your screen still shows the old logo
+
+The server is already serving the new logo (old files give a 404). If your browser still
+shows something older, it is your browser's own copy. Three ways to check and fix:
+
+| Step | What to do |
+|---|---|
+| 1. Confirm the build | Look at the bottom of any page — it says **"Build R34.2 · 30 Sep 2026"**. If it does, you are on the newest build. |
+| 2. Desktop refresh | Press **Ctrl + F5** (Windows) or **Cmd + Shift + R** (Mac). |
+| 3. Phone refresh | Chrome → **⋮ → History → Clear browsing data → Cached images and files**, or open the link in a private/incognito tab. |
+
+> Since this build the server sends `no-cache` for every page, script and stylesheet, so an
+> old copy cannot stay stuck in a browser any more — the next load always gets the new files.
+> Images keep their name + version, so they load fast and stay correct.
+
+## Notes
+
+- Passwords are hashed with bcrypt (12 rounds); sessions use an httpOnly cookie (8 hours).
+- Every write needs the CSRF header; login is rate-limited (8 failed attempts / 15 min).
+- Guests can also open a portal preview at `/#/portal/guest/dashboard` (12 sections).
+- Admin can create real accounts: Admin panel → **People Directory** → **+ Add member**.
+- The database starts empty by design — no demo members, events, news or applications.
+
+## How to stop / restart
+
+| Action | Command |
+|---|---|
+| Restart everything (backend + link) | `bash /home/user/go-live.sh` |
+| Stop the tunnel | `pkill -f cloudflared` (the link dies with it) |
+| Stop the backend | `pkill -f "node server.js"` |

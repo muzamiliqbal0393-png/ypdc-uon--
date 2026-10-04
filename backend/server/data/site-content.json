@@ -1,0 +1,267 @@
+{
+  "shaheen": {
+    "open": false,
+    "batch": "Bano Shaheen",
+    "seats": 10,
+    "message": "Bano Shaheen is YPDC UON’s flagship youth leadership programme."
+  },
+  "meta": {
+    "version": 2,
+    "cabinet": ""
+  },
+  "site": {
+    "name": "YPDC UON",
+    "full": "Young Peace & Development Corps",
+    "university": "University of Narowal",
+    "tagline": "Students Today, Leaders Tomorrow",
+    "intro": "A dynamic platform for leadership, personal growth, community engagement and meaningful impact. Join a network that turns ideas into action.",
+    "aboutProse": [
+      "The Young Peace and Development Corps (YPDC) at the University of Narowal is a student-led corps that builds leadership, civic responsibility and practical skills through real projects, events and community service.",
+      "Seven directorates work as one connected system — planning activities, mentoring members and delivering measurable impact in the campus and the wider Narowal community."
+    ],
+    "vision": "To develop a generation of confident, peaceful and service-driven student leaders who create lasting positive change in society.",
+    "mission": "To provide students a structured platform for leadership, professional growth, volunteerism, peacebuilding and community development through seven focused directorates.",
+    "values": [
+      "Peacebuilding",
+      "Integrity",
+      "Service",
+      "Teamwork",
+      "Innovation",
+      "Inclusiveness"
+    ],
+    "heroWords": [
+      "Discover",
+      "Develop",
+      "Lead",
+      "Create",
+      "Impact"
+    ],
+    "photos": {
+      "hero": "",
+      "gallery": []
+    },
+    "logo": "",
+    "contact": {
+      "email": "ypdc@uon.edu.pk",
+      "phone": "0302 542 3333",
+      "office": "Student Affairs Office, University of Narowal, Shakargarh Road, Narowal, Punjab",
+      "hours": "Monday – Friday · 09:00 AM – 04:00 PM"
+    }
+  },
+  "portals": [
+    {
+      "id": "student",
+      "num": 1,
+      "title": "Volunteer Portal",
+      "desc": "Explore events, register, track achievements and grow."
+    },
+    {
+      "id": "member",
+      "num": 2,
+      "title": "General Member Portal",
+      "desc": "Manage tasks, duties, attendance and performance."
+    },
+    {
+      "id": "directorate",
+      "num": 3,
+      "title": "Directorate Portal",
+      "desc": "Plan teams, activities, proposals and reports."
+    },
+    {
+      "id": "faculty",
+      "num": 4,
+      "title": "Faculty Portal",
+      "desc": "Oversee activities, approvals and engagement."
+    },
+    {
+      "id": "admin",
+      "num": 5,
+      "title": "Admin Portal",
+      "desc": "Manage users, events, approvals and content."
+    },
+    {
+      "id": "alumni",
+      "num": 6,
+      "title": "Alumni Portal",
+      "desc": "Connect, mentor, support and create opportunities."
+    },
+    {
+      "id": "guest",
+      "num": 7,
+      "title": "Guest / Public",
+      "desc": "Discover YPDC, news, events and achievements."
+    }
+  ],
+  "directorates": [
+    {
+      "id": "peace",
+      "name": "Peace & Civic Engagement",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Peace dialogues, civic awareness and interfaith harmony activities."
+    },
+    {
+      "id": "community",
+      "name": "Community Development",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Community service, welfare drives and rural outreach projects."
+    },
+    {
+      "id": "media",
+      "name": "Media & Communications",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Content, social media, photography, coverage and publications."
+    },
+    {
+      "id": "it",
+      "name": "IT & Web Development",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Portal development, digital skills workshops and technical support."
+    },
+    {
+      "id": "events",
+      "name": "Events & Operations",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Event planning, logistics, hospitality and operations."
+    },
+    {
+      "id": "hr",
+      "name": "Human Resource & Membership",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Membership records, induction, interviews and performance review."
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Sponsorship",
+      "members": 0,
+      "active": 0,
+      "vacancy": 0,
+      "activity": 0,
+      "lead": "",
+      "status": "Active",
+      "focus": "Budgets, sponsorships, procurement and financial reporting."
+    }
+  ],
+  "notificationGroups": [
+    "Events",
+    "Tasks",
+    "Approvals",
+    "Registrations",
+    "Certificates",
+    "Proposals"
+  ],
+  "roles": [
+    {
+      "role": "Admin",
+      "content": "Edit",
+      "approvals": "Publish · Full",
+      "users": "Manage"
+    },
+    {
+      "role": "Faculty",
+      "content": "View",
+      "approvals": "Review",
+      "users": "No edit"
+    },
+    {
+      "role": "Directorate",
+      "content": "Submit",
+      "approvals": "Track",
+      "users": "No edit"
+    },
+    {
+      "role": "General Member",
+      "content": "View",
+      "approvals": "None",
+      "users": "None"
+    },
+    {
+      "role": "Volunteer",
+      "content": "View",
+      "approvals": "None",
+      "users": "None"
+    },
+    {
+      "role": "Alumni",
+      "content": "View",
+      "approvals": "Mentor",
+      "users": "None"
+    }
+  ],
+  "profiles": {},
+  "cabinet": {
+    "session": "",
+    "status": "",
+    "posts": []
+  },
+  "analytics": {
+    "totalUsers": 0,
+    "activeMembers": 0,
+    "eventsThisTerm": 0,
+    "avgAttendance": 0,
+    "pendingApprovals": 0,
+    "certificates": 0
+  },
+  "inductionDrive": {
+    "batch": "",
+    "received": 0,
+    "approved": 0,
+    "shortlisted": 0,
+    "rejected": 0,
+    "status": ""
+  },
+  "session": null,
+  "events": [],
+  "news": [],
+  "highlights": [],
+  "achievements": [],
+  "people": [],
+  "registrations": [],
+  "attendance": [],
+  "certificates": [],
+  "volunteer": [],
+  "tasks": [],
+  "duties": [],
+  "responsibilities": [],
+  "reports": [],
+  "proposals": [],
+  "workplan": [],
+  "objectives": [],
+  "facultyActivities": [],
+  "applications": [],
+  "alumniNetwork": [],
+  "mentorship": [],
+  "careers": [],
+  "activityLog": [],
+  "feedback": [],
+  "notifications": []
+}
